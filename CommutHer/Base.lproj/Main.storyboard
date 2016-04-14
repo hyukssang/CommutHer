@@ -113,6 +113,7 @@
                         <outlet property="logo" destination="Sl5-d8-e1L" id="VsZ-Jw-gHm"/>
                         <outlet property="view" destination="Eru-0W-Vjf" id="ofI-D6-Cql"/>
                         <segue destination="hfw-eP-J9X" kind="show" identifier="toVerification" id="6Se-Ye-dPe"/>
+                        <segue destination="LoF-dS-3Ls" kind="show" identifier="skipVerification" id="vDh-Dc-bsl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkJ-nD-bei" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,6 +265,7 @@
         <!--View Controller-->
         <scene sceneID="VfU-zl-XVc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wED-sb-q5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Lp7-eZ-Rg2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WzI-HN-RHK"/>
@@ -402,13 +404,13 @@
                         </variation>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wED-sb-q5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1935" y="130.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="DLx-gk-YVf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrY-kz-VfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XFF-e8-KvC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o5d-1r-1uB"/>
@@ -440,9 +442,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP5-wW-mAV">
                                 <rect key="frame" x="280" y="489" width="41" height="30"/>
                                 <state key="normal" title="Done!"/>
-                                <connections>
-                                    <segue destination="LoF-dS-3Ls" kind="show" id="mTz-0V-BMp"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select unique 4-digit pin for future logins" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wka-Rt-JJB">
                                 <rect key="frame" x="177" y="146" width="247" height="56"/>
@@ -468,13 +467,13 @@
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mrY-kz-VfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2577" y="130.5"/>
         </scene>
         <!--Map-->
         <scene sceneID="V9E-Dr-WSp">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkq-h5-2Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="FYP-3L-0UU" customClass="MapViewController" customModule="CommutHer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wWY-dZ-3dw"/>
@@ -484,27 +483,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YF-Zd-nKn">
-                                <rect key="frame" x="538" y="72" width="48" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="e5F-xD-0x2"/>
-                                </constraints>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <segue destination="7bU-9z-fxB" kind="presentation" id="1Fq-U7-uLj"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where do you need to commute?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUB-SJ-for">
-                                <rect key="frame" x="82" y="73" width="443" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pi-yf-zY0">
                                 <rect key="frame" x="15" y="72" width="56" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="0SK-JS-Z0t"/>
                                 </constraints>
                                 <state key="normal" title="Markers"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="0SK-JS-Z0t"/>
+                                    </mask>
+                                </variation>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HVO-k9-6xR">
                                 <rect key="frame" x="0.0" y="111" width="600" height="441"/>
@@ -512,30 +501,77 @@
                                     <outlet property="delegate" destination="FYP-3L-0UU" id="3BN-am-8F5"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YF-Zd-nKn">
+                                <rect key="frame" x="538" y="72" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="e5F-xD-0x2"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="e5F-xD-0x2"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="showSearchBar:" destination="FYP-3L-0UU" eventType="touchUpInside" id="W72-oP-Sxi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="HVO-k9-6xR" secondAttribute="bottom" constant="48" id="1gl-p2-csc"/>
+                            <constraint firstItem="1pi-yf-zY0" firstAttribute="top" secondItem="wWY-dZ-3dw" secondAttribute="bottom" constant="8" symbolic="YES" id="2na-7a-pM9"/>
+                            <constraint firstItem="HVO-k9-6xR" firstAttribute="top" secondItem="1pi-yf-zY0" secondAttribute="bottom" id="348-WR-pVT"/>
                             <constraint firstAttribute="trailing" secondItem="HVO-k9-6xR" secondAttribute="trailing" id="AS5-TM-pPW"/>
+                            <constraint firstItem="2YF-Zd-nKn" firstAttribute="baseline" secondItem="1pi-yf-zY0" secondAttribute="baseline" id="Ab2-2h-427"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2YF-Zd-nKn" secondAttribute="trailing" constant="-9" id="Aiv-T5-ALe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2YF-Zd-nKn" secondAttribute="trailing" constant="-6" id="EKv-d8-1XR"/>
-                            <constraint firstItem="HVO-k9-6xR" firstAttribute="top" secondItem="gUB-SJ-for" secondAttribute="bottom" constant="8" symbolic="YES" id="Iai-Eo-bxR"/>
                             <constraint firstItem="1pi-yf-zY0" firstAttribute="top" secondItem="wWY-dZ-3dw" secondAttribute="bottom" constant="8" symbolic="YES" id="JM2-lk-AtW"/>
-                            <constraint firstItem="gUB-SJ-for" firstAttribute="baseline" secondItem="2YF-Zd-nKn" secondAttribute="baseline" id="LTw-DZ-sco"/>
                             <constraint firstItem="1pi-yf-zY0" firstAttribute="leading" secondItem="2vr-VZ-q8U" secondAttribute="leadingMargin" constant="-5" id="ObT-lF-Mqv"/>
                             <constraint firstItem="HVO-k9-6xR" firstAttribute="leading" secondItem="2vr-VZ-q8U" secondAttribute="leading" id="PkI-dX-Xxr"/>
-                            <constraint firstItem="gUB-SJ-for" firstAttribute="leading" secondItem="1pi-yf-zY0" secondAttribute="trailing" constant="11" id="Rtx-Bv-19J"/>
-                            <constraint firstItem="2YF-Zd-nKn" firstAttribute="leading" secondItem="gUB-SJ-for" secondAttribute="trailing" constant="13" id="mhV-a6-Xx5"/>
+                            <constraint firstItem="HVO-k9-6xR" firstAttribute="leading" secondItem="2vr-VZ-q8U" secondAttribute="leading" id="d5B-yM-hgf"/>
+                            <constraint firstAttribute="trailing" secondItem="HVO-k9-6xR" secondAttribute="trailing" id="jt4-Lg-foc"/>
                             <constraint firstAttribute="bottomMargin" secondItem="HVO-k9-6xR" secondAttribute="bottom" constant="48" id="nJh-dD-Uco"/>
-                            <constraint firstItem="gUB-SJ-for" firstAttribute="baseline" secondItem="1pi-yf-zY0" secondAttribute="baseline" id="ttz-h9-c3T"/>
+                            <constraint firstItem="1pi-yf-zY0" firstAttribute="leading" secondItem="2vr-VZ-q8U" secondAttribute="leadingMargin" constant="-10" id="xfz-gQ-pBN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2na-7a-pM9"/>
+                                <exclude reference="xfz-gQ-pBN"/>
+                                <exclude reference="1gl-p2-csc"/>
+                                <exclude reference="348-WR-pVT"/>
+                                <exclude reference="d5B-yM-hgf"/>
+                                <exclude reference="jt4-Lg-foc"/>
+                                <exclude reference="Ab2-2h-427"/>
+                                <exclude reference="Aiv-T5-ALe"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="2na-7a-pM9"/>
+                                <exclude reference="JM2-lk-AtW"/>
+                                <exclude reference="ObT-lF-Mqv"/>
+                                <include reference="xfz-gQ-pBN"/>
+                                <include reference="1gl-p2-csc"/>
+                                <include reference="348-WR-pVT"/>
+                                <exclude reference="AS5-TM-pPW"/>
+                                <exclude reference="PkI-dX-Xxr"/>
+                                <include reference="d5B-yM-hgf"/>
+                                <include reference="jt4-Lg-foc"/>
+                                <exclude reference="nJh-dD-Uco"/>
+                                <include reference="Ab2-2h-427"/>
+                                <include reference="Aiv-T5-ALe"/>
+                                <exclude reference="EKv-d8-1XR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="lkr-c2-zh2"/>
                     <connections>
                         <outlet property="mapview" destination="HVO-k9-6xR" id="PM9-Gj-Zee"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nkq-h5-2Ts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4579" y="767"/>
+            <point key="canvasLocation" x="4578" y="774.75"/>
         </scene>
         <!--Requests-->
         <scene sceneID="Ugt-0k-lrk">
@@ -662,6 +698,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="rOe-Ne-AIi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N03-f7-cXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="i4E-wz-h4l" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="qsK-7M-9JS"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="MaX-Uj-zGF">
@@ -670,14 +707,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Usk-TD-GNI" kind="relationship" relationship="viewControllers" id="RjQ-8k-cQf"/>
                         <segue destination="FYP-3L-0UU" kind="relationship" relationship="viewControllers" id="s1F-rs-JPC"/>
+                        <segue destination="Usk-TD-GNI" kind="relationship" relationship="viewControllers" id="RjQ-8k-cQf"/>
                         <segue destination="PSy-eH-dek" kind="relationship" relationship="viewControllers" id="QSV-en-qpi"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N03-f7-cXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3894" y="432"/>
+            <point key="canvasLocation" x="3880.5" y="432"/>
         </scene>
         <!--Profile-->
         <scene sceneID="dA8-Yg-yml">
@@ -761,6 +797,6 @@
         <image name="logo" width="5100" height="3300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="276-rT-lnu"/>
+        <segue reference="mPW-Y0-cGg"/>
     </inferredMetricsTieBreakers>
 </document>

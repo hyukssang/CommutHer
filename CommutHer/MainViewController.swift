@@ -36,7 +36,14 @@ class MainViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
             self.dismissViewControllerAnimated(true, completion: {
                 if userverified
                 {
-                    self.performSegueWithIdentifier("toVerification", sender: nil)
+                    self.performSegueWithIdentifier("skipVerification", sender: nil)
+                }
+                else{
+                    let alertView : UIAlertView = UIAlertView()
+                    alertView.title = "Oops!"
+                    alertView.message = "It seems you have not verified your identity yet!"
+                    alertView.addButtonWithTitle("OK")
+                    alertView.show()
                 }
             })
         } // Else, pop up Parse login page
@@ -64,7 +71,14 @@ class MainViewController: UIViewController, PFLogInViewControllerDelegate, PFSig
         self.dismissViewControllerAnimated(true, completion: {
             if userverified
             {
-                self.performSegueWithIdentifier("toVerification", sender: nil)
+                self.performSegueWithIdentifier("skipVerification", sender: nil)
+            }
+            else{
+                let alertView : UIAlertView = UIAlertView()
+                alertView.title = "Oops!"
+                alertView.message = "It seems you have not verified your identity yet!"
+                alertView.addButtonWithTitle("OK")
+                alertView.show()
             }
         })
     }
