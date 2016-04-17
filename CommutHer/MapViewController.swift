@@ -13,10 +13,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
 
     @IBOutlet weak var mapview: MKMapView!
     var searchController: UISearchController!
+    
     var localSearchRequest: MKLocalSearchRequest!
     var localSearch: MKLocalSearch!
     var localSearchResponse: MKLocalSearchResponse!
     var error: NSError!
+    
+    var directionsRequest: MKDirectionsRequest!
+    var directions: MKDirections!
+    
     
     var pinAnnotation: MKPointAnnotation!
     var pinAnnotationView: MKPinAnnotationView!
@@ -42,10 +47,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
+
+
+
+        localSearchRequest = MKLocalSearchRequest()
+        localSearchRequest.naturalLanguageQuery = searchBar.text
+        localSearch = MKLocalSearch(request: localSearchRequest)
+        
+        
 //        if self.mapview.annotations.count != 0{
 //            annotation = self.mapview.annotations[0]
 //            self.mapview.removeAnnotation(annotation)
 //        }
+        
         localSearchRequest = MKLocalSearchRequest()
         localSearchRequest.naturalLanguageQuery = searchBar.text
         localSearch = MKLocalSearch(request: localSearchRequest)
@@ -56,19 +70,44 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
                 self.presentViewController(alertController, animated: true, completion: nil)
                 return
             }
+            
+            
             self.locationManager.stopUpdatingLocation()
-            self.pinAnnotation = MKPointAnnotation()
-            self.pinAnnotation.title = searchBar.text
-            let resultLatitude = localSearchResponse!.boundingRegion.center.latitude
-            let resultLongitude = localSearchResponse!.boundingRegion.center.longitude
-            self.pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: resultLatitude, longitude: resultLongitude)
+            let userlong = self.locationManager.location?.coordinate.longitude
+            let userlat = self.locationManager.location?.coordinate.latitude
+//            self.pinAnnotation = MKPointAnnotation()
+//            self.pinAnnotation.title = searchBar.text
+//            let resultLatitude = localSearchResponse!.boundingRegion.center.latitude
+//            let resultLongitude = localSearchResponse!.boundingRegion.center.longitude
+//            self.pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: resultLatitude, longitude: resultLongitude)
+            
+            self.directionsRequest = MKDirectionsRequest()
+            self.directionsRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userlat!, longitude: userlong!), addressDictionary: nil))
+            self.directionsRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: localSearchResponse!.boundingRegion.center.latitude, longitude: localSearchResponse!.boundingRegion.center.longitude), addressDictionary: nil))
+            self.directionsRequest.transportType = .Walking
+            self.directions = MKDirections(request: self.directionsRequest)
+            self.directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
+                guard let unwrappedResponse = response else { return }
+                
+                for route in unwrappedResponse.routes {
+                    self.mapview.addOverlay(route.polyline)
+                    self.mapview.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+
+                }
+            }
+
         
-            self.pinAnnotationView = MKPinAnnotationView(annotation: self.pinAnnotation, reuseIdentifier: nil)
-            self.mapview.centerCoordinate = self.pinAnnotation.coordinate
-            self.mapview.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: resultLatitude, longitude: resultLongitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
-            self.mapview.addAnnotation(self.pinAnnotationView.annotation!)
+//            self.pinAnnotationView = MKPinAnnotationView(annotation: self.pinAnnotation, reuseIdentifier: nil)
+//            self.mapview.centerCoordinate = self.pinAnnotation.coordinate
+//            self.mapview.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: resultLatitude, longitude: resultLongitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+//            self.mapview.addAnnotation(self.pinAnnotationView.annotation!)
         })
         
+    }
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.blueColor()
+        return renderer
     }
     
     override func viewDidLoad() {
@@ -92,6 +131,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UISearchBa
         mapview.showsUserLocation = true
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        locationManager.startUpdatingLocation()
+    }
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var usercoordinate = manager.location?.coordinate
 //        print("\(usercoordinate?.latitude)")
