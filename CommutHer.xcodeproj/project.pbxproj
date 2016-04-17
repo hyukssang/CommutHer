@@ -19,6 +19,8 @@
 		D11005EC1CB1E205002BBD90 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11005E21CB1E205002BBD90 /* Security.framework */; };
 		D11005ED1CB1E205002BBD90 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11005E31CB1E205002BBD90 /* StoreKit.framework */; };
 		D11005EE1CB1E205002BBD90 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11005E41CB1E205002BBD90 /* SystemConfiguration.framework */; };
+		D141BAC21CC3FC21001401E1 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D141BAC11CC3FC21001401E1 /* RequestsViewController.swift */; };
+		D141BAC41CC3FD88001401E1 /* RequestsMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = D141BAC31CC3FD88001401E1 /* RequestsMgr.swift */; };
 		D165DE741CA9B03300BC6113 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D165DE731CA9B03300BC6113 /* FBSDKCoreKit.framework */; };
 		D165DE781CA9B03F00BC6113 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D165DE751CA9B03F00BC6113 /* FBSDKLoginKit.framework */; };
 		D165DE791CA9B03F00BC6113 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D165DE761CA9B03F00BC6113 /* FBSDKShareKit.framework */; };
@@ -71,6 +73,8 @@
 		D11005E41CB1E205002BBD90 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D11005EF1CB1E3B6002BBD90 /* CommutHer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CommutHer-Bridging-Header.h"; sourceTree = "<group>"; };
 		D11005F11CB1E3B6002BBD90 /* parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse.h; sourceTree = "<group>"; };
+		D141BAC11CC3FC21001401E1 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		D141BAC31CC3FD88001401E1 /* RequestsMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsMgr.swift; sourceTree = "<group>"; };
 		D165DE731CA9B03300BC6113 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D165DE751CA9B03F00BC6113 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D165DE761CA9B03F00BC6113 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				D1F6AE4F1CA896B0002CC2BA /* LaunchScreen.storyboard */,
 				D1F6AE521CA896B0002CC2BA /* Info.plist */,
 				D1F6AE4D1CA896B0002CC2BA /* Assets.xcassets */,
+				D141BAC11CC3FC21001401E1 /* RequestsViewController.swift */,
+				D141BAC31CC3FD88001401E1 /* RequestsMgr.swift */,
 			);
 			path = CommutHer;
 			sourceTree = "<group>";
@@ -350,6 +356,8 @@
 				D1F6AE471CA896B0002CC2BA /* AppDelegate.swift in Sources */,
 				D1F6AE791CA8B478002CC2BA /* VerificationViewController.swift in Sources */,
 				D1FCA8971CB58B890016E564 /* Pin.swift in Sources */,
+				D141BAC41CC3FD88001401E1 /* RequestsMgr.swift in Sources */,
+				D141BAC21CC3FC21001401E1 /* RequestsViewController.swift in Sources */,
 				D1FCA89D1CB5A83E0016E564 /* LoginViewController.swift in Sources */,
 				D1FCA8951CB571670016E564 /* MapViewController.swift in Sources */,
 				D1F6AE771CA8B2C6002CC2BA /* ProfileController.swift in Sources */,
