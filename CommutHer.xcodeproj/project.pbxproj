@@ -183,22 +183,22 @@
 		D1F6AE451CA896B0002CC2BA /* CommutHer */ = {
 			isa = PBXGroup;
 			children = (
-				D1FCA89C1CB5A83E0016E564 /* LoginViewController.swift */,
-				D1F6AE781CA8B478002CC2BA /* VerificationViewController.swift */,
-				D1FCA8941CB571670016E564 /* MapViewController.swift */,
-				D1FCA8961CB58B890016E564 /* Pin.swift */,
-				D1FCA8981CB592450016E564 /* MapViewControl.swift */,
-				D1F6AE761CA8B2C6002CC2BA /* ProfileController.swift */,
 				D11005F11CB1E3B6002BBD90 /* parse.h */,
 				D11005EF1CB1E3B6002BBD90 /* CommutHer-Bridging-Header.h */,
-				D1F6AE461CA896B0002CC2BA /* AppDelegate.swift */,
+				D1FCA8961CB58B890016E564 /* Pin.swift */,
+				D1FCA8981CB592450016E564 /* MapViewControl.swift */,
+				D1F6AE781CA8B478002CC2BA /* VerificationViewController.swift */,
+				D1FCA89C1CB5A83E0016E564 /* LoginViewController.swift */,
 				D1F6AE481CA896B0002CC2BA /* MainViewController.swift */,
+				D1FCA8941CB571670016E564 /* MapViewController.swift */,
+				D141BAC31CC3FD88001401E1 /* RequestsMgr.swift */,
+				D141BAC11CC3FC21001401E1 /* RequestsViewController.swift */,
+				D1F6AE761CA8B2C6002CC2BA /* ProfileController.swift */,
+				D1F6AE461CA896B0002CC2BA /* AppDelegate.swift */,
 				D1F6AE4A1CA896B0002CC2BA /* Main.storyboard */,
 				D1F6AE4F1CA896B0002CC2BA /* LaunchScreen.storyboard */,
 				D1F6AE521CA896B0002CC2BA /* Info.plist */,
 				D1F6AE4D1CA896B0002CC2BA /* Assets.xcassets */,
-				D141BAC11CC3FC21001401E1 /* RequestsViewController.swift */,
-				D141BAC31CC3FD88001401E1 /* RequestsMgr.swift */,
 			);
 			path = CommutHer;
 			sourceTree = "<group>";
